@@ -1,0 +1,94 @@
+﻿@model IEnumerable<DataFactory.Models.Payout>
+
+@{
+    ViewBag.Title = "ComputePayout";
+}
+
+<h2>ComputePayout</h2>
+
+
+<table class="table table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AgentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgentCode)
+        </th>
+        <th>
+            Prev. Month Life
+        </th>
+        <th>
+            Prev. Month Non-Life
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LifeProduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NonLifeProduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Savings)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FixedPay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuickStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contest)
+        </th>
+        <th>
+            Total
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgentCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreviousLifeProduction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreviousNonLifeProduction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LifeProduction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NonLifeProduction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Savings)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FixedPay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuickStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contest)
+        </td>
+        <td>
+            @{
+                var total = item.FixedPay + item.QuickStart + item.Contest;
+                <span>@total</span>
+            }
+        </td>
+    </tr>
+}
+
+</table>
